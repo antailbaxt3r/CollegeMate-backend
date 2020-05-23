@@ -1,6 +1,3 @@
-'use strict'
-// This file is used to initialize sequelize
-
 const Sequelize = require('sequelize');
 var config = require("../../config/config");
 
@@ -14,6 +11,13 @@ const sequelize = new Sequelize(env.DATABASE_NAME, env.DATABASE_USERNAME, env.DA
     underscored: true,
     schema: env.SCHEMA
   },
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  },
+  operatorAliases: false
   // socketPath : env.SOCKET_PATH,
   // dialectOptions: env.DIALECT_OPTIONS
 //  logging: false

@@ -3,8 +3,6 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-const port = 3000
-
 var signInRouter = require('./routes/signin')
 var subjectRouter = require('./routes/subjects')
 
@@ -25,7 +23,5 @@ app.get('/', (req, res) => {
 app.use('/api', signInRouter)
 app.use('/api/subjects', subjectRouter)
 
-app.listen(port, () => {
-    console.log('App running on port', port)
-})
 
+module.exports = app

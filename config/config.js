@@ -2,10 +2,10 @@ require('dotenv').config()
 
 var db = {
     staging: {
-        DATABASE_HOST: '/cloudsql/generic-services:asia-south1:services-database',
-        DATABASE_NAME: 'services',
-        DATABASE_USERNAME: 'services',
-        DATABASE_PASSWORD: 'services',
+        DATABASE_HOST: 'ec2-52-202-22-140.compute-1.amazonaws.com',
+        DATABASE_NAME: 'd2npgsm8o6n95g',
+        DATABASE_USERNAME: 'dhrncwspnqajcg',
+        DATABASE_PASSWORD: 'e98913dbc3b2d1db3fe514109eb9f109843000d4e0a7a1e48b3a8c855890cb12',
         DATABASE_PORT: 5432,
         DATABASE_DIALECT: 'postgres',
         NODE_ENV: process.env.NODE_ENV || 'staging',
@@ -54,8 +54,8 @@ var config = {
     },
 
     db: {
-        env: db.rg, // This is where we set the environment of the db
-        cache: cache.rg
+        env: db.staging, // This is where we set the environment of the db
+        cache: cache.staging
     },
 
     apiKeys: {

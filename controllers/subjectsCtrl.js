@@ -61,3 +61,26 @@ module.exports.createSubject = async function (req, res) {
     });
   }
 };
+
+module.exports.deleteSubject = async function (req, res) {
+    // get request_body
+    const subject_id = req.body.subject_id;
+    const id = req.user.id;
+    // const images = req.body.images;
+    //change code for user_id
+    
+    await db.public.subjects.destroy({ where: { subject_id: subject_id, login_id: id } }).then(() => {
+      return res.status(200).json({
+        success: true,
+        msg: "Subject deleted successfully.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        success: false,
+        msg: "Internal server error",
+        details: err
+      });
+    })
+};

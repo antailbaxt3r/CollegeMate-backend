@@ -1,24 +1,20 @@
-const db = require("../db");
+const db = require("./db");
 const sequelize = db.sequelize;
 const DataTypes = db.Sequelize;
 
-module.exports.Assignments = sequelize.define('assignment', {
-    assignment_id: {
+module.exports.Subjects = sequelize.define('subject', {
+    subject_id: {
         type: DataTypes.BIGINT,
         primaryKey: true,
         allowNull: false,
         autoIncrement: true
     },
-    login_id:{
-        type: DataTypes.BIGINT,
-        allowNull: false,
-    },
-    course_name: {
+    subject_title: {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    date_due: { 
-        type: DataTypes.DATE,
+    course_code: { 
+        type: DataTypes.TEXT,
         allowNull:false
     },
     created_at: {

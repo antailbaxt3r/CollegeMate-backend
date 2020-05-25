@@ -6,9 +6,9 @@ const db = {};
 db.login = require('./login.js').Login;
 
 //subjects
-db.subjects = require('./subjects/subjects').Subjects
+db.subjects = require('./subjects').Subjects
 
 //assignments
-db.assignments = require('./assignments/assignments').Assignments
+db.assignments = require('./assignments').Assignments
 
 module.exports = db

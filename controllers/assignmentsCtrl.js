@@ -40,7 +40,7 @@ module.exports.createAssignment = async function (req, res) {
     // const images = req.body.images;
     //change code for user_id
     assignment.login_id = req.user.id;
-
+    
     console.log('1:', assignment.login_id)
     console.log('2:', req.user.id)
 
@@ -64,4 +64,25 @@ module.exports.createAssignment = async function (req, res) {
       msg: "Internal server error",
     });
   }
+};
+
+module.exports.deleteAssignment = async function (req, res) {
+    // get request_body
+    const assignment_id = req.body.assignment_id;
+    const id = req.user.id;
+    // const images = req.body.images;
+    //change code for user_id
+    
+    await db.public.assignments.destroy({ where: { assignment_id: assignment_id, login_id: id } }).then(() => {
+      return res.status(200).json({
+        msg: "Assignment deleted successfully.",
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json({
+        success: false,
+        msg: "Internal server error",
+      });
+    })
 };

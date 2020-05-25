@@ -19,3 +19,22 @@ module.exports.subjectValidation = (req, res, next) => {
         return next();
     }
 }
+
+module.exports.assignmentValidation = (req, res, next) => {
+    const assignment = req.body;
+    const schema = Joi.object({
+        date_due: Joi.string().required(),
+        course_name: Joi.string().required(),
+    });
+    const { data, error } = schema.validate(assignment);
+    if (error) {
+        console.log(error)
+        return res.status(400).json({
+            success: false,
+            error: 'Invalid fields constraints. Bad request',
+            details: error.details[0]
+        });
+    } else {
+        return next();
+    }
+}

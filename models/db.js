@@ -17,4 +17,7 @@ db.public = require("./public/models");
 db.public.login.hasMany(db.public.subjects, { foreignKey: 'login_id', onDelete: 'CASCADE', constraints: false, allowNull: false });
 db.public.subjects.belongsTo(db.public.login, { foreignKey: 'user_id', onDelete: 'CASCADE', constraints: false, allowNull: false });
 
+db.public.login.hasMany(db.public.subjects, { foreignKey: 'login_id', onDelete: 'CASCADE', constraints: false, allowNull: false });
+db.public.assignments.belongsTo(db.public.login, { foreignKey: 'user_id', onDelete: 'CASCADE', constraints: false, allowNull: false });
+
 module.exports = db;

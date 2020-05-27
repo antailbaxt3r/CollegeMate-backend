@@ -11,4 +11,7 @@ db.subjects = require('./subjects').Subjects
 //assignments
 db.assignments = require('./assignments').Assignments
 
+//timetable
+db.classes = require('./classes').Classes
+
 module.exports = db

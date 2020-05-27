@@ -20,4 +20,8 @@ db.public.subjects.belongsTo(db.public.login, { foreignKey: 'user_id', onDelete:
 db.public.login.hasMany(db.public.subjects, { foreignKey: 'login_id', onDelete: 'CASCADE', constraints: false, allowNull: false });
 db.public.assignments.belongsTo(db.public.login, { foreignKey: 'user_id', onDelete: 'CASCADE', constraints: false, allowNull: false });
 
+//classes
+db.public.login.hasMany(db.public.classes, { foreignKey: 'login_id', onDelete: 'CASCADE', constraints: false, allowNull: false })
+db.public.classes.belongsTo(db.public.login, { foreignKey: 'login_id', onDelete: 'CASCADE', constraints: false, allowNull: false });
+db.public.classes.belongsTo(db.public.subjects, { foreignKey: 'subject_id', onDelete: 'CASCADE', constraints: false, allowNull: false });
 module.exports = db;

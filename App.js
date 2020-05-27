@@ -10,6 +10,7 @@ var signInRouter = require('./routes/signin')
 var subjectRouter = require('./routes/subjects')
 var assignmentRouter = require('./routes/assignments')
 var profileRouter = require('./routes/profile')
+var timetableRouter = require('./routes/timetable')
 
 require('./passport/passportJWT')
 
@@ -29,6 +30,7 @@ app.use('/api', signInRouter)
 app.use('/api/subjects', subjectRouter)
 app.use('/api/assignments', assignmentRouter)
 app.use('/api/user', profileRouter)
+app.use('/api/timetable', timetableRouter)
 
 var port = normalizePort(config.app.port);
 app.set('port', port);

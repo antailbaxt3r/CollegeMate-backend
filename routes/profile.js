@@ -8,5 +8,6 @@ var profile = require('../controllers/profileCtrl')
 
 router.get('/get', verify.user, profile.getProfile)
 router.post('/update', verify.user, profile.update)
+router.delete('/delete', verify.user, profile.deleteUser)
 
 module.exports = router

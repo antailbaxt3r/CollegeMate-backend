@@ -51,7 +51,7 @@ module.exports.createClass = async function (req, res) {
         };
         return res.status(200).json({
           success: true,
-          subject: class_data,
+          timetable: class_data,
         });
       });
   } catch (err) {

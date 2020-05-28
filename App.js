@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var debug = require('debug')('api:server');
 var http = require('http');
+var passport = require('passport')
+var cors = require('cors')
 
 var config = require('./config/config')
 var signInRouter = require('./routes/signin')
@@ -18,6 +20,8 @@ var app = express()
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(cors());
 
 
 app.get('/', (req, res) => {

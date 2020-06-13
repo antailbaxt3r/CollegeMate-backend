@@ -79,6 +79,11 @@ var config = {
     },
     exam: {
         csv: '/path/to/csv'
+    },
+    cloudinary:{
+        cloud_name: "dfatemtbe",
+        api_key: "932511163645779",
+        api_secret: "NROusmFVS-C08Qz8XZNgUCgWelU",
     }
 };
 

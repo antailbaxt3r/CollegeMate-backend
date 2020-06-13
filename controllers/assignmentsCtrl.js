@@ -1,5 +1,7 @@
 const db = require("../models/db");
 const fetch = require("../functions/fetchFunc");
+const uploader = require('cloudinary').uploader;
+const dataUri = require('../functions/multer').dataUri;
 
 module.exports.getAssignments = async (req, res) => {
   try {
@@ -86,3 +88,25 @@ module.exports.deleteAssignment = async function (req, res) {
       });
     })
 };
+
+
+module.exports.uploadImage = (req,res)=>{
+  console.log('req.body:', req.file)
+  if(req.file){
+    var file = dataUri(req).content;
+    console.log("uploading..");
+    return uploader.upload(file).then((result)=>{
+      console.log("Image Uploaded:", result.url);
+      return res.json({
+        success:"true",
+        image_path: result.url,
+      })
+    }).catch((error)=>{
+        console.log(error);
+        return res.json({
+          message:"Image not uploaded",
+          error
+        })
+    })  
+  }
+}

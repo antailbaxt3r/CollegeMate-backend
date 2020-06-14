@@ -30,6 +30,7 @@ db.public.classes.belongsTo(db.public.subjects, { foreignKey: 'subject_id', onDe
 /*sequelize.sync({ force: true })
   .then(() => {
     console.log(`Database & tables created!`)
-  })  */
+  })  
+*/
 
 module.exports = db;

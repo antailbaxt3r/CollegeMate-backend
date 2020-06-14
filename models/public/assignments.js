@@ -17,10 +17,7 @@ module.exports.Assignments = sequelize.define('assignment', {
         type:DataTypes.TEXT,
         allowNull:false,
     },
-    image_path:{
-        type:DataTypes.TEXT,
-        allowNull:false,
-    },
+    image_path:DataTypes.TEXT,
     login_id:{
         type: DataTypes.BIGINT,
         allowNull: false,

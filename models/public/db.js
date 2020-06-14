@@ -11,15 +11,16 @@ const sequelize = new Sequelize(env.DATABASE_NAME, env.DATABASE_USERNAME, env.DA
     underscored: true,
     schema: env.SCHEMA
   },
-  dialectOptions: {
+  //Removed to test local database without ssl
+  /*dialectOptions: {
     ssl: {
-      require: true,
-      rejectUnauthorized: false
+      require: false,
+      rejectUnauthorized: true
     }
-  },
-  operatorAliases: false
+  } , */
+  operatorAliases: false,
   // socketPath : env.SOCKET_PATH,
-  // dialectOptions: env.DIALECT_OPTIONS
+  dialectOptions: env.DIALECT_OPTIONS
 //  logging: false
 });
 

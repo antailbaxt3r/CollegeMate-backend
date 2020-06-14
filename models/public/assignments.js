@@ -9,11 +9,23 @@ module.exports.Assignments = sequelize.define('assignment', {
         allowNull: false,
         autoIncrement: true
     },
+    assignment_title:{
+        type: DataTypes.TEXT,
+        allowNull:false,
+    },
+    assignment_description:{
+        type:DataTypes.TEXT,
+        allowNull:false,
+    },
+    image_path:{
+        type:DataTypes.TEXT,
+        allowNull:false,
+    },
     login_id:{
         type: DataTypes.BIGINT,
         allowNull: false,
     },
-    course_name: {
+    course_name: {  
         type: DataTypes.TEXT,
         allowNull: false
     },

@@ -50,6 +50,9 @@ module.exports.createAssignment = async function (req, res) {
       .create(assignment, { returning: true })
       .then((assignmentData) => {
         const assignment_data = {
+          assignment_title: assignmentData.assignment_title,
+          assignment_desciption: assignmentData.assignment_desciption,
+          image_path: assignmentData.image_path,
           course_name: assignmentData.course_name,
           assignment_id: assignmentData.assignment_id,
           date_due: assignmentData.date_due,
@@ -89,7 +92,6 @@ module.exports.deleteAssignment = async function (req, res) {
     })
 };
 
-
 module.exports.uploadImage = (req,res)=>{
   console.log('req.body:', req.file)
   if(req.file){
@@ -97,15 +99,15 @@ module.exports.uploadImage = (req,res)=>{
     console.log("uploading..");
     return uploader.upload(file).then((result)=>{
       console.log("Image Uploaded:", result.url);
-      return res.json({
+      return res.status(200).json({
         success:"true",
         image_path: result.url,
       })
     }).catch((error)=>{
         console.log(error);
-        return res.json({
-          message:"Image not uploaded",
-          error
+        return res.status(500).json({
+          success:false,
+          msg: error
         })
     })  
   }

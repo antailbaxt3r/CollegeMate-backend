@@ -26,20 +26,18 @@ var db = {
         DATABASE_HOST: process.env.DATABASE_HOST || 'localhost',
         DATABASE_NAME: process.env.DATABASE_NAME || 'college-mate-api',
         DATABASE_USERNAME: process.env.DATABASE_USERNAME || 'postgres',
-        DATABASE_PASSWORD: process.env.DATABASE_PASSWORD || 'eatsleepcode',
-        DATABASE_PORT: process.env.DATABASE_PORT || 5432,
+        DATABASE_PASSWORD: process.env.DATABASE_PASSWORD || 'omsingh',
+        DATABASE_PORT: process.env.DATABASE_PORT || 5433,
         DATABASE_DIALECT: process.env.DATABASE_DIALECT || 'postgres',
         NODE_ENV: process.env.NODE_ENV || 'development',
         SCHEMA: "public",
     },
-
-
 };
 
 var cache = {
     rg: {
         host: 'localhost',
-        port: 6379
+        port: 5433
     }
 };
 
@@ -54,7 +52,7 @@ var config = {
     },
 
     db: {
-        env: db.staging, // This is where we set the environment of the db
+        env: db.rg, // This is where we set the environment of the db
         cache: cache.staging
     },
 

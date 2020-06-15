@@ -8,10 +8,10 @@ var validate = require('../functions/validateFunc');
 
 var assignments = require('../controllers/assignmentsCtrl')
 
-router.get('/get', verify.user,assignments.getAssignments);
-router.post('/add', verify.user, validate.assignmentValidation ,assignments.createAssignment)
+router.get('/get', verify.user, assignments.getAssignments);
+router.post('/add', verify.user, validate.assignmentValidation, assignments.createAssignment)
 router.delete('/delete', verify.user, assignments.deleteAssignment)
 
-router.post('/upload',multerUploads,configCloudinary,assignments.uploadImage);
+router.post('/upload', multerUploads,configCloudinary,assignments.uploadImage);
 
 module.exports = router

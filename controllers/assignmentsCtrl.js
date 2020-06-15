@@ -96,7 +96,7 @@ module.exports.deleteAssignment = async function (req, res) {
     })
 };
 
-module.exports.uploadImage = (req,res)=>{
+module.exports.uploadImage = (req, res)=>{
   console.log('req.body:', req.file)
   
   if(req.file){
@@ -106,7 +106,7 @@ module.exports.uploadImage = (req,res)=>{
     return uploader.upload(file).then((result)=>{
       console.log("Image Uploaded:", result.url);
 
-      return db.public.assignments.update({image_path: result.url},{where:{assignment_id:assignment_id}})
+      return db.public.assignments.update({image_path: result.url}, {where:{assignment_id:assignment_id}})
       
     }).then(()=>{
       console.log("Updating Image path..");

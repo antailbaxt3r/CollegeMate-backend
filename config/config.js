@@ -37,7 +37,7 @@ var db = {
 var cache = {
     rg: {
         host: 'localhost',
-        port: 5433
+        port: 6379
     }
 };
 
@@ -52,7 +52,7 @@ var config = {
     },
 
     db: {
-        env: db.rg, // This is where we set the environment of the db
+        env: db.staging, // This is where we set the environment of the db
         cache: cache.staging
     },
 

@@ -26,6 +26,10 @@ module.exports.Assignments = sequelize.define('assignment', {
         type: DataTypes.TEXT,
         allowNull: false
     },
+    course_code:{
+        type:DataTypes.TEXT,
+        allowNull:false
+    },
     date_due: { 
         type: DataTypes.DATE,
         allowNull:false

@@ -56,7 +56,7 @@ module.exports.createAssignment = async function (req, res) {
       .then((assignmentData) => {
         const assignment_data = {
           assignment_title: assignmentData.assignment_title,
-          assignment_desciption: assignmentData.assignment_description,
+          assignment_description: assignmentData.assignment_description,
           course_name: assignmentData.course_name,
           course_code: assignmentData.course_code,
           assignment_id: assignmentData.assignment_id,

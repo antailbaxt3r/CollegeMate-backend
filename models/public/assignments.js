@@ -9,13 +9,26 @@ module.exports.Assignments = sequelize.define('assignment', {
         allowNull: false,
         autoIncrement: true
     },
+    assignment_title:{
+        type: DataTypes.TEXT,
+        allowNull:false,
+    },
+    assignment_description:{
+        type:DataTypes.TEXT,
+        allowNull:false,
+    },
+    image_path:DataTypes.TEXT,
     login_id:{
         type: DataTypes.BIGINT,
         allowNull: false,
     },
-    course_name: {
+    course_name: {  
         type: DataTypes.TEXT,
         allowNull: false
+    },
+    course_code:{
+        type:DataTypes.TEXT,
+        allowNull:false
     },
     date_due: { 
         type: DataTypes.DATE,

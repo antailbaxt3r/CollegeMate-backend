@@ -5,7 +5,6 @@ const config = require('../config/config')
 const db = require('../models/db')
 
 module.exports.checkUserGoogle = async(req, res) => {
-    //const CLIENT_ID = '498233300103-3p9u6r2rmlru42i40d421ju1ljosdca9.apps.googleusercontent.com'
     const CLIENT_ID = config.google.CLIENT_ID;    
     const client = new OAuth2Client(CLIENT_ID);
     const idToken = req.body.idToken;

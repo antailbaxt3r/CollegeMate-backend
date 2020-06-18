@@ -13,6 +13,7 @@ module.exports.getAssignments = async (req, res) => {
       attributes: [
         "assignment_id",
         "course_name",
+        "course_code",
         "date_due",
         "assignment_title",
         "assignment_description",
@@ -55,8 +56,9 @@ module.exports.createAssignment = async function (req, res) {
       .then((assignmentData) => {
         const assignment_data = {
           assignment_title: assignmentData.assignment_title,
-          assignment_desciption: assignmentData.assignment_description,
+          assignment_description: assignmentData.assignment_description,
           course_name: assignmentData.course_name,
+          course_code: assignmentData.course_code,
           assignment_id: assignmentData.assignment_id,
           date_due: assignmentData.date_due,
         };
@@ -102,10 +104,11 @@ module.exports.uploadImage = (req, res)=>{
   if(req.file){
     var file = dataUri(req).content;
     var assignment_id = BigInt(req.body.assignment_id);
+    var imageURL = "";
     console.log("uploading..");
     return uploader.upload(file).then((result)=>{
       console.log("Image Uploaded:", result.url);
-
+      imageURL = result.url;
       return db.public.assignments.update({image_path: result.url}, {where:{assignment_id:assignment_id}})
       
     }).then(()=>{
@@ -114,6 +117,7 @@ module.exports.uploadImage = (req, res)=>{
       return res.status(200).json({
         success:"true",
         msg: "Image received",
+        image_path: imageURL,
       })
 
     }).then(()=>{
@@ -122,7 +126,8 @@ module.exports.uploadImage = (req, res)=>{
         console.log(error);
         return res.status(500).json({
           success:false,
-          msg: error
+          msg: error,
+          image_path: imageURL
         })
     })
   }

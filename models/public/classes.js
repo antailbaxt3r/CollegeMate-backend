@@ -25,7 +25,6 @@ module.exports.Classes = sequelize.define(
     },
     faculty:{
       type: DataTypes.TEXT,
-      allowNull: false,
     },
     start: {
       type: DataTypes.TEXT,

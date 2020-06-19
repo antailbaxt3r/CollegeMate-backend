@@ -47,7 +47,7 @@ module.exports.classValidation = (req, res, next) => {
     const schema = Joi.object({
         course_name: Joi.string().required(),
         course_code: Joi.string().required(),
-        faculty:Joi.string().required(),
+        faculty:Joi.string().allow(''),
         start: Joi.string().required(),
         end: Joi.string().required(),
         day: Joi.string().required(),

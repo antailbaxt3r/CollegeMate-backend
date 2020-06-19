@@ -10,16 +10,18 @@ module.exports.getClasses = async (req, res) => {
       where: { login_id: id },
       attributes: [
         "class_id",
-        "subject_id",
+        "course_code",
+        "course_name",
+        "faculty",
         "login_id",
         "start",
         "end",
         "day"
       ],
-      include: [{
+      /*include: [{
                 model: db.public.subjects,
-                attributes: ['subject_title', 'course_code', 'subject_id']
-            }]
+                attributes: ['course_code', 'course_name']
+            }]  */
     });
     return res.status(200).json({
       success: true,
@@ -44,7 +46,9 @@ module.exports.createClass = async function (req, res) {
       .then((classData) => {
         const class_data = {
           login_id: classData.login_id,
-          subject_id: classData.subject_id,
+          course_code: classData.course_code,
+          course_name: classData.course_name,
+          faculty:classData.faculty,
           start: classData.start,
           end: classData.end,
           day: classData.day

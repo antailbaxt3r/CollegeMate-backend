@@ -11,13 +11,20 @@ module.exports.Classes = sequelize.define(
       allowNull: false,
       autoIncrement: true,
     },
-    subject_id: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
+    course_name:{
+      type:DataTypes.TEXT,
+      allowNull: false
+    },
+    course_code:{
+      type:DataTypes.TEXT,
+      allowNull:false,
     },
     login_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
+    },
+    faculty:{
+      type: DataTypes.TEXT,
     },
     start: {
       type: DataTypes.TEXT,
@@ -26,7 +33,7 @@ module.exports.Classes = sequelize.define(
       type: DataTypes.TEXT,
     },
     day: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
     },
   },
   {

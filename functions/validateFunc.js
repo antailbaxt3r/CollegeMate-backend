@@ -45,7 +45,9 @@ module.exports.assignmentValidation = (req, res, next) => {
 module.exports.classValidation = (req, res, next) => {
     const reqClass = req.body;
     const schema = Joi.object({
-        subject_id: Joi.number().required(),
+        course_name: Joi.string().required(),
+        course_code: Joi.string().required(),
+        faculty:Joi.string().allow(''),
         start: Joi.string().required(),
         end: Joi.string().required(),
         day: Joi.string().required(),

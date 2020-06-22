@@ -16,7 +16,8 @@ module.exports.getClasses = async (req, res) => {
         "login_id",
         "start",
         "end",
-        "day"
+        "day",
+        "venue"
       ],
       /*include: [{
                 model: db.public.subjects,
@@ -25,7 +26,7 @@ module.exports.getClasses = async (req, res) => {
     });
     return res.status(200).json({
       success: true,
-      subjects: timetableData, // If null, front-end should show no current compaints
+      classes: timetableData, // If null, front-end should show no current compaints
     });
   } catch (err) {
     console.log(err);
@@ -51,11 +52,12 @@ module.exports.createClass = async function (req, res) {
           faculty:classData.faculty,
           start: classData.start,
           end: classData.end,
-          day: classData.day
+          day: classData.day,
+          venue: classData.venue,
         };
         return res.status(200).json({
           success: true,
-          subject: class_data,
+          classes: class_data,
         });
       });
   } catch (err) {

@@ -51,6 +51,7 @@ module.exports.classValidation = (req, res, next) => {
         start: Joi.string().required(),
         end: Joi.string().required(),
         day: Joi.string().required(),
+        venue: Joi.string().required(),
     });
     const { data, error } = schema.validate(reqClass);
     if (error) {

@@ -23,6 +23,10 @@ module.exports.Classes = sequelize.define(
       type: DataTypes.BIGINT,
       allowNull: false,
     },
+    venue:{
+      type: DataTypes.TEXT,
+      allowNull:false,
+    },
     faculty:{
       type: DataTypes.TEXT,
     },

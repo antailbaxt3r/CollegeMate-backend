@@ -7,10 +7,10 @@ const sequelize = new Sequelize(env.DATABASE_NAME, env.DATABASE_USERNAME, env.DA
   host: env.DATABASE_HOST,
   port: env.DATABASE_PORT,
   dialect: env.DATABASE_DIALECT,
-  define: {
+  /*define: {
     underscored: true,
     schema: env.SCHEMA
-  },
+  },  */
   //Removed to test local database without ssl
   /*dialectOptions: {
     ssl: {
@@ -20,7 +20,7 @@ const sequelize = new Sequelize(env.DATABASE_NAME, env.DATABASE_USERNAME, env.DA
   },  */
   operatorAliases: false,
   // socketPath : env.SOCKET_PATH,
-  dialectOptions: env.DIALECT_OPTIONS
+  //dialectOptions: env.DIALECT_OPTIONS
 //  logging: false
 });
 

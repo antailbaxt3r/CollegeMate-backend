@@ -5,7 +5,7 @@ const config = require('../config/config')
 const db = require('../models/db')
 
 module.exports.checkUserGoogle = async(req, res) => {
-    const CLIENT_ID = config.google.CLIENT_ID;    
+    const CLIENT_ID = config.google.CLIET_ID;    
     const client = new OAuth2Client(CLIENT_ID);
     const idToken = req.body.idToken;
     if(idToken){

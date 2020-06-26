@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var debug = require('debug')('api:server');
 var http = require('http');
+var cors = require('cors');
 
 var config = require('./config/config')
 var signInRouter = require('./routes/signin')
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
         message: "Welcome to CollegeMate"
     })
 })
+app.use(cors());
 
 app.use('/api', signInRouter)
 app.use('/api/subjects', subjectRouter)

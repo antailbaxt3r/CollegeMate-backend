@@ -2,10 +2,10 @@ require('dotenv').config()
 
 var db = {
     staging: {
-        DATABASE_HOST: 'ec2-52-202-22-140.compute-1.amazonaws.com',
-        DATABASE_NAME: 'd2npgsm8o6n95g',
-        DATABASE_USERNAME: 'dhrncwspnqajcg',
-        DATABASE_PASSWORD: 'e98913dbc3b2d1db3fe514109eb9f109843000d4e0a7a1e48b3a8c855890cb12',
+        DATABASE_HOST: 'ec2-34-202-88-122.compute-1.amazonaws.comm',
+        DATABASE_NAME: 'd4nchnch4q69cl',
+        DATABASE_USERNAME: 'aqfljgozvjkxmx',
+        DATABASE_PASSWORD: 'd7901f294146b9926b5430f4b286a70186ea22ce67dd7b9599d54b49b0e005fb',
         DATABASE_PORT: 5432,
         DATABASE_DIALECT: 'postgres',
         NODE_ENV: process.env.NODE_ENV || 'staging',

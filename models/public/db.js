@@ -17,10 +17,10 @@ const sequelize = new Sequelize(env.DATABASE_NAME, env.DATABASE_USERNAME, env.DA
       require: true,
       rejectUnauthorized: false
     }
-  },
+  }, 
   operatorAliases: false,
   // socketPath : env.SOCKET_PATH,
-  //dialectOptions: env.DIALECT_OPTIONS
+  dialectOptions: env.DIALECT_OPTIONS
 //  logging: false
 });
 

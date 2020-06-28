@@ -12,10 +12,10 @@ var db = {
         SCHEMA: "public",
     },
     prod: {
-        DATABASE_HOST: process.env.DATABASE_HOST || '/cloudsql/generic-services:asia-south1:services-database',
-        DATABASE_NAME: process.env.DATABASE_NAME || 'services',
-        DATABASE_USERNAME: process.env.DATABASE_USERNAME || 'services',
-        DATABASE_PASSWORD: process.env.DATABASE_PASSWORD || 'services',
+        DATABASE_HOST: process.env.DATABASE_HOST || 'ec2-34-202-88-122.compute-1.amazonaws.com',
+        DATABASE_NAME: process.env.DATABASE_NAME || 'd4nchnch4q69cl',
+        DATABASE_USERNAME: process.env.DATABASE_USERNAME || 'aqfljgozvjkxmx',
+        DATABASE_PASSWORD: process.env.DATABASE_PASSWORD || 'd7901f294146b9926b5430f4b286a70186ea22ce67dd7b9599d54b49b0e005fb',
         DATABASE_PORT: process.env.DATABASE_PORT || 5432,
         DATABASE_DIALECT: process.env.DATABASE_DIALECT || 'postgres',
         NODE_ENV: process.env.NODE_ENV || 'production',
@@ -52,7 +52,7 @@ var config = {
     },
 
     db: {
-        env: db.staging, // This is where we set the environment of the db
+        env: db.prod, // This is where we set the environment of the db
         cache: cache.staging
     },
 

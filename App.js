@@ -19,12 +19,11 @@ var app = express()
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname,'build')))
 
 
 app.get('/', (req, res) => {
-    res.status(200).json({
-        message: "Welcome to CollegeMate"
-    })
+    res.sendFile(path.join(__dirname,'build','index.html'))
 })
 app.use(cors());
 

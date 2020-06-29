@@ -57,7 +57,7 @@ module.exports.checkUserGoogle = async(req, res) => {
                         return res.status(200).json({
                             success: true,
                             authToken: token,
-                            newUser: login_data.new_user // newUser = true
+                            newUser: true
                         });
                     })
                     .catch (err => {
@@ -85,7 +85,7 @@ module.exports.checkUserGoogle = async(req, res) => {
                 return res.status(200).json({
                     success: true,
                     authToken: token,
-                    newUser: user.new_user
+                    newUser: false,
                 });
             }
         } catch (err) {

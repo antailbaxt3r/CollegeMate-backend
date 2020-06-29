@@ -26,7 +26,7 @@ module.exports.getProfile = async (req, res) => {
     });
     return res.status(200).json({
       success: true,
-      subjects: userData, // If null, front-end should show no current compaints
+      profile: userData, // If null, front-end should show no current compaints
     });
   } catch (err) {
     console.log(err);

@@ -86,6 +86,7 @@ module.exports.deleteAssignment = async function (req, res) {
     
     await db.public.assignments.destroy({ where: { assignment_id: assignment_id, login_id: id } }).then(() => {
       return res.status(200).json({
+        success:true,
         msg: "Assignment deleted successfully.",
       });
     })

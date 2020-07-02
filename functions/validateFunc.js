@@ -65,3 +65,22 @@ module.exports.classValidation = (req, res, next) => {
         return next();
     }
 }
+
+module.exports.libraryValidation = (req, res, next) => {
+    const reqClass = req.body;
+    const schema = Joi.object({
+        name:Joi.string().required(),
+        description:Joi.string().allow('')
+    });
+    const { data, error } = schema.validate(reqClass);
+    if (error) {
+        console.log(error)
+        return res.status(400).json({
+            success: false,
+            error: 'Invalid fields constraints. Bad request',
+            details: error.details[0]
+        });
+    } else {
+        return next();
+    }
+}

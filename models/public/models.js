@@ -14,4 +14,7 @@ db.assignments = require('./assignments').Assignments
 //timetable
 db.classes = require('./classes').Classes
 
+//library
+db.library = require('./library').Library
+
 module.exports = db

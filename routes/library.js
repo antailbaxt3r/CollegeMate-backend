@@ -6,10 +6,11 @@ const configCloudinary = require('../functions/configCloudinary');
 var verify = require('../functions/verifyFunc');
 var validate = require('../functions/validateFunc');
 
-var libarary = require('../controllers/libraryCtrl');
+var library = require('../controllers/libraryCtrl');
 const multer = require('multer');
 
-router.get('/get', verify.user, libarary.getLibrary);
-router.post('/add', verify.user, multerUploads, configCloudinary, validate.libraryValidation, libarary.addFile)
+router.get('/get', verify.user, library.getLibrary);
+router.post('/add', verify.user, multerUploads, configCloudinary, validate.libraryValidation, library.addFile)
+router.delete('/delete',configCloudinary,verify.user,library.deleteFile);
 
 module.exports = router

@@ -5,7 +5,7 @@ const DataTypes = db.Sequelize;
 module.exports.Library = sequelize.define(
   "library",
   {
-    library_id: {
+    file_id: {
       type: DataTypes.BIGINT,
       primaryKey: true,
       allowNull: false,
@@ -14,6 +14,10 @@ module.exports.Library = sequelize.define(
     login_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
+    },
+    public_id:{
+      type:DataTypes.TEXT,
+      allowNull:false,
     },
     name:{
       type: DataTypes.TEXT,

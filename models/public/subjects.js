@@ -11,11 +11,11 @@ module.exports.Subjects = sequelize.define('subject', {
     },
     subject_title: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: false,
     },
     course_code: { 
         type: DataTypes.TEXT,
-        allowNull:false
+        allowNull:false,
     },
     created_at: {
         type: DataTypes.DATE,

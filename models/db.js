@@ -36,10 +36,10 @@ db.public.login.hasMany(db.public.attendance,  {foreignKey: 'login_id',  onDelet
 db.public.subjects.hasMany(db.public.attendance,  {foreignKey: 'subject_id',  onDelete: 'CASCADE', constraints: false, allowNull: false});
 
 //For making the relations on the local database.
-/*sequelize.sync({ force: true })
+sequelize.sync({ force: true })
   .then(() => {
     console.log(`Database & tables created!`)
-  })   */
+  })
 
 
 module.exports = db;

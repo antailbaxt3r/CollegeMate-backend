@@ -14,7 +14,7 @@ module.exports.addAttendance = (req,res)=>{
                 subject_id:attendanceData.subject_id,
             }
 
-            return res.status(500).json({
+            return res.status(200).json({
                 success:true,
                 attendace:response,
             })
@@ -68,7 +68,7 @@ module.exports.getAttendance = (req, res)=>{
     .then((attendanceData)=>{
         return res.status(200).json({
             success:true,
-            attendace:attendanceData,
+            attendance:attendanceData,
         })
     }).catch((err)=>{
         return res.status(500).json({

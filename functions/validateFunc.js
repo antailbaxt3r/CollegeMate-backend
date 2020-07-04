@@ -1,4 +1,5 @@
 const Joi = require('@hapi/joi');
+const { JsonWebTokenError } = require('jsonwebtoken');
 
 // Subjects Validation
 module.exports.subjectValidation = (req, res, next) => {
@@ -81,6 +82,27 @@ module.exports.libraryValidation = (req, res, next) => {
             details: error.details[0]
         });
     } else {
+        return next();
+    }
+}
+
+module.exports.attendanceValidation = (req,res,next)=>{
+    const reqClass = req.body;
+    const schema = Joi.object({
+        date:Joi.date().required(),
+        is_present:Joi.boolean().required(),
+        subject_id:Joi.number().required(),
+    })
+
+    const {data,error} = schema.validate(reqClass);
+    if(error){
+        console.log(error)
+        return res.status(400).json({
+            success:false,
+            error:'Invalid fields constrants. Bad request',
+            details:error.details[0],
+        })
+    }else{
         return next();
     }
 }

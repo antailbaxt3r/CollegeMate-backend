@@ -2,7 +2,7 @@ const db = require("./db");
 const sequelize = db.sequelize;
 const DataTypes = db.Sequelize;
 
-module.exports.Assignments = sequelize.define('assignment', {
+module.exports.Attendance = sequelize.define('attendance', {
     attendance_id: {
         type: DataTypes.BIGINT,
         primaryKey: true,
@@ -13,8 +13,12 @@ module.exports.Assignments = sequelize.define('assignment', {
         type:DataTypes.BIGINT,
         allowNull:false,
     },
-    present:{
+    is_present:{
         type:DataTypes.BOOLEAN,
+        allowNull:false,
+    },
+    date:{
+        type:DataTypes.DATE,
         allowNull:false,
     }
 },  {

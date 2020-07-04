@@ -17,4 +17,7 @@ db.classes = require('./classes').Classes
 //library
 db.library = require('./library').Library
 
+//Attendance 
+db.attendance = require('./attendance').Attendance
+
 module.exports = db

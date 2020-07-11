@@ -28,7 +28,7 @@ module.exports.checkUserGoogle = async(req, res) => {
                 where: {
                    email: userEmail
                 }, 
-                attributes: ['id', 'email', 'created_at', 'new_user']
+                    
             })
             // console.log(user);
             if (!user) {

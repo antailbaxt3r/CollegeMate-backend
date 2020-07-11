@@ -64,7 +64,10 @@ module.exports.addFile = (req,res)=>{
                     description:data.description,
                     name:data.name,
                 }
-                return res.status(200).json(file_data);
+                return res.status(200).json({
+                    success:true,
+                    file_data:file_data,
+                });
         }).catch((err)=>{
             console.log(err);
             return res.status(500).json({
